@@ -15,6 +15,8 @@
 	$default_language_id = 1; //Default language (1 = Danish)
 	if (!isset($_SESSION['language_id'])) {
 		$_SESSION['language_id'] = $default_language_id;
+	} elseif (isset($_GET['language'])){
+		$_SESSION['language_id'] = $_GET['language'];
 	}		
 	
     if (isset($_SESSION['message'])):		?>
@@ -103,6 +105,18 @@
         </div>
     </form>
     </div>
-    </div>
+	<div class="footer fixed-bottom">
+	<div class="row justify-content-center">
+	<?php
+	$language_result = $mysqli->query("SELECT * FROM languages") or die ($mysqli->error);
+	while ($row = $language_result->fetch_assoc()):
+	?>
+	
+	<a href="index.php?language=<?php echo $row['languages_id']?>" class="btn btn-warning" style="margin-left: 2px; margin-right: 2px; margin-bottom: 2px; margin-top: 2px;"><?php echo $row['languages_name']?></a>
+	
+	<?php endwhile;?>
+	</div>
+	</div>
+    </div>	
 </body>
 </html>
