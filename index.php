@@ -130,8 +130,23 @@
 
                                 </div>
                                 </div>
-
-                                <a href="index.php?delete=<?php echo $row['products_id']; ?>" class="btn btn-danger">Slet</a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#slet">Slet</button>
+                                <div id="slet" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h4 class="modal-title">Bekræft sletning</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row justify-content-center">
+                                                <a href="index.php?delete=<?php echo $row['products_id']; ?>" class="btn btn-danger">Bekræft</a>
+                                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Annuller</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                
 
                             </td>
                         </tr>
