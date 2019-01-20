@@ -65,89 +65,87 @@
 
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?php echo $row['products_id']?>">Rediger</button>
                                 <div id="myModal<?php echo $row['products_id']?>" class="modal fade" role="dialog">
-                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-dialog modal-lg">
 
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Redigere vare</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <div class="row justify-content-center">
-                                        <form action="process.php" method="POST">
-                                                <div class="form-group">
-                                                    <label>Varenummer</label>
-                                                    <input type="text" name="product" value="<?php echo $row['products_reference']?>">
-                                                </div> 
-                                                <div class="form-group">
-                                                    <label>Pris</label>
-                                                    <input type="text" name="price" value="<?php echo $row['products_price']?>">
-                                                </div>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-sm">
-                                                            <div class="form-group">
-                                                                <label>Varenavn</label>
-                                                                <input type="hidden" name="id" value="<?php echo $row['products_id']?>">
-                                                                <input type="text" name="name" value="<?php echo $row['products_description_name']?>">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Redigere vare</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row justify-content-center">
+                                                    <form action="process.php" method="POST">
+                                                    <div class="form-group">
+                                                        <label>Varenummer</label>
+                                                        <input type="text" name="product" value="<?php echo $row['products_reference']?>">
+                                                    </div> 
+                                                    <div class="form-group">
+                                                        <label>Pris</label>
+                                                        <input type="text" name="price" value="<?php echo $row['products_price']?>">
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-sm">
+                                                                <div class="form-group">
+                                                                    <label>Varenavn</label>
+                                                                    <input type="hidden" name="id" value="<?php echo $row['products_id']?>">
+                                                                    <input type="text" name="name" value="<?php echo $row['products_description_name']?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Korttekst</label> <br>
+                                                                    <textarea rows="4" cols="40" style="resize: none" type="text" name="short"><?php echo $row['products_description_short_description']?></textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Langtekst</label> <br>
+                                                                    <textarea rows="8" cols="40" style="resize: none" type="text" name="long"><?php echo $row['products_description_description']?></textarea>
+                                                                </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label>Korttekst</label> <br>
-                                                                <textarea rows="4" cols="40" style="resize: none" type="text" name="short"><?php echo $row['products_description_short_description']?></textarea>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Langtekst</label> <br>
-                                                                <textarea rows="8" cols="40" style="resize: none" type="text" name="long"><?php echo $row['products_description_description']?></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm">
-                                                            <div class="form-group">
-                                                                <label>Varenavn</label>
-                                                                <input type="text" value="<?php echo $row_default['products_description_name']?>" disabled>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Korttekst</label> <br>
-                                                                <textarea rows="4" cols="40" style="resize: none" type="text" disabled><?php echo $row_default['products_description_short_description']?></textarea>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Langtekst</label> <br>
-                                                                <textarea rows="8" cols="40" style="resize: none" type="text" disabled><?php echo $row_default['products_description_description']?></textarea>
+                                                            <div class="col-sm">
+                                                                <div class="form-group">
+                                                                    <label>Varenavn</label>
+                                                                    <input type="text" value="<?php echo $row_default['products_description_name']?>" disabled>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Korttekst</label> <br>
+                                                                    <textarea rows="4" cols="40" style="resize: none" type="text" disabled><?php echo $row_default['products_description_short_description']?></textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Langtekst</label> <br>
+                                                                    <textarea rows="8" cols="40" style="resize: none" type="text" disabled><?php echo $row_default['products_description_description']?></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn btn-primary" name="edit">Gem</button>
+                                                    </div>
+                                                    </form>
                                                 </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary" name="edit">Gem</button>
-                                                </div>
-                                            </form>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                    </div>
-
                                 </div>
-                                </div>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#slet">Slet</button>
-                                <div id="slet" class="modal fade" role="dialog">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#slet<?php echo $row['products_id']?>">Slet</button>
+                                <div id="slet<?php echo $row['products_id']?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                            <h4 class="modal-title">Bekræft sletning</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row justify-content-center">
-                                                <a href="index.php?delete=<?php echo $row['products_id']; ?>" class="btn btn-danger">Bekræft</a>
-                                                <button type="submit" class="btn btn-primary" data-dismiss="modal">Annuller</button>
+                                                <h4 class="modal-title">Bekræft sletning</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row justify-content-center">
+                                                    <a href="index.php?delete=<?php echo $row['products_id']; ?>" class="btn btn-danger" style="margin-left: 2px; margin-right: 2px; margin-bottom: 2px; margin-top: 2px;">Bekræft</a>
+                                                    <button type="submit" class="btn btn-primary" data-dismiss="modal" style="margin-left: 2px; margin-right: 2px; margin-bottom: 2px; margin-top: 2px;">Annuller</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
-                                
-
+                                </div>
                             </td>
                         </tr>
                     <?php endwhile; ?>
