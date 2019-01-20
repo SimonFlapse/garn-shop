@@ -17,6 +17,12 @@ if (isset($_POST['save'])){
 		$last_id = $mysqli->insert_id;
 	$mysqli->query("INSERT INTO products_description (products_id, languages_id, products_description_name, products_description_short_description, products_description_description) VALUES('$last_id', ".$_SESSION['language_id'].", '$name', '$short', '$long')") or
         die($mysqli->error);
+    
+    $language_result = $mysqli->query("SELECT * FROM languages WHERE languages_id != ".$_SESSION['language_id']."") or die ($mysqli->error);
+	while ($row = $language_result->fetch_assoc()){
+        $mysqli->query("INSERT INTO products_description (products_id, languages_id, products_description_name, products_description_short_description, products_description_description) VALUES('$last_id', ".$row['languages_id'].", 'UNKNOWN', 'UNDEFINED', 'UNDEFINED')") or
+        die($mysqli->error);
+    }
 		
         $_SESSION['message'] = "Gemt!";
         $_SESSION['msg_type'] = "success";
